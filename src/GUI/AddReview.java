@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
-
+import java.util.Scanner;
 /**
  *
  * @author elsvandevijver
@@ -32,6 +32,10 @@ public class AddReview extends javax.swing.JFrame
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        entityManager1 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(null).createEntityManager();
+        entityManager2 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(null).createEntityManager();
+        list1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ((javax.persistence.Query)null).getResultList();
+        query1 = java.beans.Beans.isDesignTime() ? null : ((javax.persistence.EntityManager)null).createQuery("");
         jLabelReviewMenu = new javax.swing.JLabel();
         jButtonAddReview = new javax.swing.JButton();
         jButtonAgreeReview = new javax.swing.JButton();
@@ -106,15 +110,23 @@ public class AddReview extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddReviewActionPerformed
-        // TODO add your handling code here:
+        
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please write your review");
+        String review = keyboard.nextLine();
+        
     }//GEN-LAST:event_jButtonAddReviewActionPerformed
 
     private void jButtonAgreeReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgreeReviewActionPerformed
-        // TODO add your handling code here:
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please indicate the review you agree with");
+        String review = keyboard.nextLine();
     }//GEN-LAST:event_jButtonAgreeReviewActionPerformed
 
     private void jButtonNoReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNoReviewActionPerformed
-        // TODO add your handling code here:
+        
+        System.out.println("You have not submitted a review. You can add one at any time.");
+        System.exit(0);
     }//GEN-LAST:event_jButtonNoReviewActionPerformed
 
     /**
@@ -145,18 +157,26 @@ public class AddReview extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new AddReview().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager entityManager1;
+    private javax.persistence.EntityManager entityManager2;
     private javax.swing.JButton jButtonAddReview;
     private javax.swing.JButton jButtonAgreeReview;
     private javax.swing.JButton jButtonNoReview;
     private javax.swing.JLabel jLabelReviewMenu;
     private javax.swing.JPanel jPanel1;
+    private java.util.List list1;
+    private javax.persistence.Query query1;
     // End of variables declaration//GEN-END:variables
 }
