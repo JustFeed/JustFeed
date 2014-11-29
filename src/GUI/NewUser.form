@@ -36,7 +36,7 @@
                   <Component id="jButtonCreateNewUser" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jTextFieldGeefWachtwoord" pref="78" max="32767" attributes="0"/>
-                      <Component id="jTextFieldGeefLogin" pref="78" max="32767" attributes="0"/>
+                      <Component id="jTextFieldGeefGebruikersnaam" pref="78" max="32767" attributes="0"/>
                       <Component id="jTextFieldBevestigWachtwoord" alignment="0" pref="78" max="32767" attributes="0"/>
                       <Component id="jTextFieldVoornaam" alignment="0" max="32767" attributes="0"/>
                       <Component id="jTextFieldNaam" max="32767" attributes="0"/>
@@ -58,7 +58,7 @@
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldGeefLogin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldGeefGebruikersnaam" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -120,12 +120,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Login "/>
+        <Property name="text" type="java.lang.String" value="Gebruikersnaam"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldGeefLogin">
+    <Component class="javax.swing.JTextField" name="jTextFieldGeefGebruikersnaam">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldGeefLoginActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldGeefGebruikersnaamActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

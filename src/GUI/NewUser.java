@@ -28,7 +28,7 @@ public class NewUser extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldGeefLogin = new javax.swing.JTextField();
+        jTextFieldGeefGebruikersnaam = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldGeefWachtwoord = new javax.swing.JTextField();
@@ -51,11 +51,11 @@ public class NewUser extends javax.swing.JPanel {
         jTextFieldStraatNr = new javax.swing.JTextField();
         jButtonCreateNewUser = new javax.swing.JButton();
 
-        jLabel1.setText("Login ");
+        jLabel1.setText("Gebruikersnaam");
 
-        jTextFieldGeefLogin.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldGeefGebruikersnaam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldGeefLoginActionPerformed(evt);
+                jTextFieldGeefGebruikersnaamActionPerformed(evt);
             }
         });
 
@@ -117,7 +117,7 @@ public class NewUser extends javax.swing.JPanel {
                     .addComponent(jButtonCreateNewUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jTextFieldGeefWachtwoord, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                        .addComponent(jTextFieldGeefLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                        .addComponent(jTextFieldGeefGebruikersnaam, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                         .addComponent(jTextFieldBevestigWachtwoord, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                         .addComponent(jTextFieldVoornaam)
                         .addComponent(jTextFieldNaam)
@@ -135,7 +135,7 @@ public class NewUser extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextFieldGeefLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldGeefGebruikersnaam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -182,9 +182,9 @@ public class NewUser extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldGeefLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeefLoginActionPerformed
+    private void jTextFieldGeefGebruikersnaamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeefGebruikersnaamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldGeefLoginActionPerformed
+    }//GEN-LAST:event_jTextFieldGeefGebruikersnaamActionPerformed
 
     private void jTextFieldGeefWachtwoordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeefWachtwoordActionPerformed
         // TODO add your handling code here:
@@ -212,7 +212,7 @@ public class NewUser extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldBevestigEmail;
     private javax.swing.JTextField jTextFieldBevestigWachtwoord;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldGeefLogin;
+    private javax.swing.JTextField jTextFieldGeefGebruikersnaam;
     private javax.swing.JTextField jTextFieldGeefWachtwoord;
     private javax.swing.JTextField jTextFieldGemeente;
     private javax.swing.JTextField jTextFieldGsm;
