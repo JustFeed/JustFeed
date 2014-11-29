@@ -31,10 +31,22 @@ public class AddReview extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabelReviewMenu = new javax.swing.JLabel();
         jButtonAddReview = new javax.swing.JButton();
         jButtonAgreeReview = new javax.swing.JButton();
         jButtonNoReview = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,5 +157,6 @@ public class AddReview extends javax.swing.JFrame
     private javax.swing.JButton jButtonAgreeReview;
     private javax.swing.JButton jButtonNoReview;
     private javax.swing.JLabel jLabelReviewMenu;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
