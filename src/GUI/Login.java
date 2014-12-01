@@ -48,6 +48,16 @@ public class Login extends javax.swing.JPanel {
         jButtonAanmelden.setText("Aanmelden");
 
         jButtonNieuwegebruiker.setText("Nieuwe gebruiker");
+        jButtonNieuwegebruiker.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonNieuwegebruikerMouseClicked(evt);
+            }
+        });
+        jButtonNieuwegebruiker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNieuwegebruikerActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Wachtwoord Vergeten");
 
@@ -93,8 +103,16 @@ public class Login extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldGebruikersnaamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGebruikersnaamActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextFieldGebruikersnaamActionPerformed
+
+    private void jButtonNieuwegebruikerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNieuwegebruikerMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNieuwegebruikerMouseClicked
+
+    private void jButtonNieuwegebruikerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNieuwegebruikerActionPerformed
+        System.out.println("test");
+    }//GEN-LAST:event_jButtonNieuwegebruikerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

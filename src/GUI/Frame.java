@@ -5,7 +5,8 @@
  */
 package GUI;
 
-import java.awt.BorderLayout;
+import Database.Database;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,13 +14,21 @@ import java.awt.BorderLayout;
  */
 public class Frame extends javax.swing.JFrame {
     Login lp = new Login();
+    NewUser nu = new NewUser();
     /**
      * Creates new form Frame
      */
     public Frame() {
+        System.out.println("test");
+        Database db = new Database();
+        System.out.println("test2");
         initComponents();
-        this.setLayout(new BorderLayout());
-        this.add(lp,BorderLayout.CENTER);
+        geefWeer(lp);
+        
+    }
+    
+    public void geefWeer(javax.swing.JPanel p){
+        this.add(p);
     }
 
     /**

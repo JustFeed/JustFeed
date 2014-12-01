@@ -30,23 +30,23 @@
                   <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jButtonCreateNewUser" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTextFieldGeefWachtwoord" pref="78" max="32767" attributes="0"/>
-                      <Component id="jTextFieldGeefGebruikersnaam" pref="78" max="32767" attributes="0"/>
-                      <Component id="jTextFieldBevestigWachtwoord" alignment="0" pref="78" max="32767" attributes="0"/>
-                      <Component id="jTextFieldVoornaam" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldNaam" max="32767" attributes="0"/>
-                      <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldBevestigEmail" max="32767" attributes="0"/>
-                      <Component id="jTextFieldGsm" max="32767" attributes="0"/>
-                      <Component id="jTextField1" max="32767" attributes="0"/>
-                      <Component id="jTextFieldGemeente" max="32767" attributes="0"/>
-                      <Component id="jTextFieldStraatNr" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jTextFieldGeefWachtwoord" pref="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldGeefGebruikersnaam" max="32767" attributes="0"/>
+                  <Component id="jTextFieldBevestigWachtwoord" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldVoornaam" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldNaam" max="32767" attributes="0"/>
+                  <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldBevestigEmail" max="32767" attributes="0"/>
+                  <Component id="jTextFieldGsm" max="32767" attributes="0"/>
+                  <Component id="jTextField1" max="32767" attributes="0"/>
+                  <Component id="jTextFieldGemeente" max="32767" attributes="0"/>
+                  <Component id="jTextFieldStraat" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldHuisnummer" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="136" max="32767" attributes="0"/>
           </Group>
@@ -108,11 +108,16 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldStraatNr" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldStraat" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldHuisnummer" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Component id="jButtonCreateNewUser" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -205,12 +210,22 @@
         <Property name="text" type="java.lang.String" value="Straat + nr"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldStraatNr">
+    <Component class="javax.swing.JTextField" name="jTextFieldStraat">
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCreateNewUser">
       <Properties>
         <Property name="text" type="java.lang.String" value="Bevestigen"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreateNewUserActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Huisnummer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldHuisnummer">
     </Component>
   </SubComponents>
 </Form>

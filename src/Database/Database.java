@@ -1,7 +1,7 @@
 
 package Database;
 
-//import Logica.*;
+import Logica.*;
 import java.lang.String;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,9 +18,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class Database {
     
-    private static final String db = "BINFG31";
-    private static final String user = "BINFG31";
-    private static final String pasw = "aeCahqu3";
+    private static final String db = "BINFG07";
+    private static final String user = "BINFG07";
+    private static final String pasw = "2eI7mqfv";
     
     private Connection dbConnection = null;
     
@@ -90,6 +90,55 @@ public class Database {
             return srs;
         }
     }
-}
+    
+   
+    
+    public Klant getKlant(String gebruikersnaam){
+        try{
+            String sql = "SELECT * FROM klant WHERE login = " + gebruikersnaam + ";";
+            ResultSet srs = getData(sql);
+            if(srs.next()){
+                
+                String naam = srs.getString("naam");
+                String voornaam = srs.getString("voornaam");
+                String email = srs.getString("email");
+                String straatnaam = srs.getString("straatnaam");
+                int huisnummer = srs.getInt("huisnummer");
+                String gemeente = srs.getString("gemeente");
+                 int postcode = srs.getInt("postcode");
+                int gsm = srs.getInt("gsm");
+                String password = srs.getString("password");
+                Klant a = new Klant(naam, voornaam, gebruikersnaam, email, postcode, gemeente, huisnummer, gsm, password, straatnaam);
+                this.closeConnection();
+                return a;
+                
+                
+            }
+            else return null;
+            
+        }
+        catch(SQLException sqle){
+            System.out.println("SQLException: " + sqle.getMessage());
+            this.closeConnection();
+            return null;
+        }
+        
+        
+    }
+    
+    
+    //*
+
+    
+  }  
+    
+    
+   
+    
+    
+    
+    
+    
+    
     
     

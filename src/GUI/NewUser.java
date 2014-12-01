@@ -48,8 +48,10 @@ public class NewUser extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jTextFieldGemeente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextFieldStraatNr = new javax.swing.JTextField();
+        jTextFieldStraat = new javax.swing.JTextField();
         jButtonCreateNewUser = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jTextFieldHuisnummer = new javax.swing.JTextField();
 
         jLabel1.setText("Gebruikersnaam");
 
@@ -93,6 +95,13 @@ public class NewUser extends javax.swing.JPanel {
         jLabel11.setText("Straat + nr");
 
         jButtonCreateNewUser.setText("Bevestigen");
+        jButtonCreateNewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateNewUserActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Huisnummer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -111,22 +120,23 @@ public class NewUser extends javax.swing.JPanel {
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonCreateNewUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldGeefWachtwoord, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                        .addComponent(jTextFieldGeefGebruikersnaam, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                        .addComponent(jTextFieldBevestigWachtwoord, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                        .addComponent(jTextFieldVoornaam)
-                        .addComponent(jTextFieldNaam)
-                        .addComponent(jTextFieldEmail)
-                        .addComponent(jTextFieldBevestigEmail)
-                        .addComponent(jTextFieldGsm)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextFieldGemeente)
-                        .addComponent(jTextFieldStraatNr)))
+                    .addComponent(jTextFieldGeefWachtwoord, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(jTextFieldGeefGebruikersnaam)
+                    .addComponent(jTextFieldBevestigWachtwoord)
+                    .addComponent(jTextFieldVoornaam)
+                    .addComponent(jTextFieldNaam)
+                    .addComponent(jTextFieldEmail)
+                    .addComponent(jTextFieldBevestigEmail)
+                    .addComponent(jTextFieldGsm)
+                    .addComponent(jTextField1)
+                    .addComponent(jTextFieldGemeente)
+                    .addComponent(jTextFieldStraat)
+                    .addComponent(jTextFieldHuisnummer))
                 .addContainerGap(136, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -175,10 +185,14 @@ public class NewUser extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jTextFieldStraatNr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTextFieldStraat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextFieldHuisnummer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addComponent(jButtonCreateNewUser)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,12 +208,17 @@ public class NewUser extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNaamActionPerformed
 
+    private void jButtonCreateNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateNewUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCreateNewUserActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreateNewUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -216,8 +235,9 @@ public class NewUser extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldGeefWachtwoord;
     private javax.swing.JTextField jTextFieldGemeente;
     private javax.swing.JTextField jTextFieldGsm;
+    private javax.swing.JTextField jTextFieldHuisnummer;
     private javax.swing.JTextField jTextFieldNaam;
-    private javax.swing.JTextField jTextFieldStraatNr;
+    private javax.swing.JTextField jTextFieldStraat;
     private javax.swing.JTextField jTextFieldVoornaam;
     // End of variables declaration//GEN-END:variables
 }
