@@ -34,6 +34,7 @@ public class Klant {
     private String gsmnummer;
     private String password;
     private String straatnaam;
+    private String huisdier;
     
     Database db = new Database();
     
@@ -41,7 +42,7 @@ public class Klant {
     {}
     
   
-    public Klant (String naam, String voornaam, String gebruikersnaam, String email, int postcode, int huisnummer, String gsmnummer, String password, String straatnaam)
+    public Klant (String naam, String voornaam, String gebruikersnaam, String email, int postcode, int huisnummer, String gsmnummer, String password, String straatnaam, String huisdier)
     {
         this.naam = naam;
         this.voornaam = voornaam;
@@ -53,6 +54,7 @@ public class Klant {
         this.gsmnummer = gsmnummer;
 
         this.password = password;
+        this.huisdier = huisdier;
 
     }
     
@@ -84,6 +86,10 @@ public class Klant {
     public void setEmail(String email)
     {
         this.email = email;
+    }
+    
+    public String getHuisdier (){
+        return this.huisdier;
     }
     
     public String getWachtwoord (){

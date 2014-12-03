@@ -20,7 +20,7 @@ public class NewUser extends javax.swing.JFrame {
     
     private JFrame myCaller;
     public Database d = new Database();
-    public Klant actief = Login.getInstance().getActief();
+    
    
     
     private static final NewUser nu = new NewUser();
@@ -38,133 +38,11 @@ public class NewUser extends javax.swing.JFrame {
         myCaller = caller;
     }
       
-      private void jButtonAnnulerenActionPerformed(java.awt.event.ActionEvent evt){
-          if ( actief == null) {
-              Login s = new Login();
-              s.setLocationRelativeTo(null);
-                s.setVisible(true);
-                setVisible(false);
-              
-          }
-          else{
-            d.deleteKlant(actief);
-            Login s = new Login();
-            s.setLocationRelativeTo(null);
-            s.setVisible(true);
-            setVisible(false);
-      }}
+      
     
     
-                                         
+      
 
-    private void jButtonRegistrerenActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        
-        String paswoord = jTextFieldSetWachtwoord.getText();
-        String paswoordHerhaald = jTextFieldBevestigWachtwoord.getText();
-        String gebruikersnaam = jTextFieldKiesGebruikersnaam.getText();
-        String naam = jTextFieldNaam.getText();
-        String voornaam = jTextFieldVoornaam.getText();
-        String mail = jTextFieldEmail.getText();
-        int postcode = Integer.parseInt(jTextFieldPostcode.getText());
-        int huisnummer = Integer.parseInt(jTextFieldHuisnummer.getText());
-        String gsm = jTextFieldGsm.getText();
-        String straatnaam = jTextFieldStraatnaam.getText();
-        
-        if(checkPaswoord(paswoord, gebruikersnaam))
-        {
-            if(paswoord.equals(paswoordHerhaald))
-            {
-                Klant k = new Klant(naam, voornaam, gebruikersnaam, mail, postcode, huisnummer, gsm, paswoord, straatnaam);
-            
-                if(d.checkGebruikersnaam(k.getGebruikersnaam()))
-                {
-                    JOptionPane.showMessageDialog(null, "Deze gebruikersnaam bestaat al.");
-                    jTextFieldKiesGebruikersnaam.setText("");
-                    jTextFieldSetWachtwoord.setText("");
-                    jTextFieldBevestigWachtwoord.setText("");
-                    jTextFieldKiesGebruikersnaam.requestFocus();
-                    jTextFieldNaam.setText("");
-                     jTextFieldVoornaam.setText("");
-                     jTextFieldEmail.setText("");
-                    jTextFieldPostcode  .setText("");
-                    jTextFieldHuisnummer.setText("");
-                    jTextFieldGsm  .setText("");
-                    jTextFieldStraatnaam     .setText("");   
-                }
-                else
-                {
-                    d.addKlant(k);
-                    Login.getInstance().setActief(k);
-                    actief = Login.getInstance().getActief();
-                    //hier komt joptionpane die zegt aanmalden succes, we verminden u nu door met de lobby
-                    JOptionPane.showMessageDialog(null, "Account succesvol aangemaakt, we verbinden u door met de lobby");
-                    
-                    Lobby lobby = new Lobby(this);
-                    lobby.setLocationRelativeTo(null);
-                    lobby.setVisible(true);
-                    setVisible(false);
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Beide wachtwoorden komen niet overeen.");
-                 jTextFieldKiesGebruikersnaam.setText("");
-                    jTextFieldSetWachtwoord.setText("");
-                    jTextFieldBevestigWachtwoord.setText("");
-                    jTextFieldKiesGebruikersnaam.requestFocus();
-                    jTextFieldNaam.setText("");
-                     jTextFieldVoornaam.setText("");
-                     jTextFieldEmail.setText("");
-                    jTextFieldPostcode  .setText("");
-                    jTextFieldHuisnummer.setText("");
-                    jTextFieldGsm  .setText("");
-                    jTextFieldStraatnaam     .setText("");   
-                jTextFieldSetWachtwoord.requestFocus();
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Het wachtwoord moet tussen minstens 8 karakters lang zijn en mag de gebruikersnaam niet bevatten");
-             jTextFieldKiesGebruikersnaam.setText("");
-                    jTextFieldSetWachtwoord.setText("");
-                    jTextFieldBevestigWachtwoord.setText("");
-                    jTextFieldKiesGebruikersnaam.requestFocus();
-                    jTextFieldNaam.setText("");
-                     jTextFieldVoornaam.setText("");
-                     jTextFieldEmail.setText("");
-                    jTextFieldPostcode  .setText("");
-                    jTextFieldHuisnummer.setText("");
-                    jTextFieldGsm  .setText("");
-                     jTextFieldStraatnaam     .setText("");   
-                    jTextFieldSetWachtwoord.requestFocus();
-        }
-    }    
-    
-   
-    
-    public boolean checkPaswoord(String paswoord, String gebruikersnaam)
-    {
-        int length;
-        length = paswoord.length();
-        int lengthgebruikersnaam;
-        lengthgebruikersnaam = gebruikersnaam.length();
-        
-        if(length < 8)
-        {
-            return false;
-        }
-        
-        for(int i = 0; i < paswoord.length()-gebruikersnaam.length();i++)
-        {
-            if (paswoord.contains(gebruikersnaam))
-            {
-                return false;
-            }           
-            return true;
-        }
-        return true;
-    }
-   
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -196,6 +74,8 @@ public class NewUser extends javax.swing.JFrame {
         jTextFieldHuisnummer = new javax.swing.JTextField();
         jButtonRegistreren = new javax.swing.JButton();
         jButtonAnnuleren = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jTextFieldBeveiligingsVraag = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -224,8 +104,20 @@ public class NewUser extends javax.swing.JFrame {
         huisnummer.setText("huisnummer");
 
         jButtonRegistreren.setText("Registreren");
+        jButtonRegistreren.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrerenActionPerformed(evt);
+            }
+        });
 
         jButtonAnnuleren.setText("Annuleren");
+        jButtonAnnuleren.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnnulerenActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Beveiligingsvraag, naam van je eerste huisdier");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,11 +127,9 @@ public class NewUser extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jButtonAnnuleren)
-                        .addGap(68, 68, 68)
-                        .addComponent(jButtonRegistreren)
-                        .addGap(0, 37, Short.MAX_VALUE))
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldBeveiligingsVraag))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -249,22 +139,30 @@ public class NewUser extends javax.swing.JFrame {
                                 .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
-                                    .addGap(89, 89, 89)))
+                                    .addGap(89, 89, 89))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButtonAnnuleren)
+                                    .addComponent(jLabel3)))
                             .addComponent(jLabel2))
-                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldSetWachtwoord)
-                            .addComponent(jTextFieldBevestigWachtwoord)
-                            .addComponent(jTextFieldVoornaam)
-                            .addComponent(jTextFieldNaam)
-                            .addComponent(jTextFieldEmail)
-                            .addComponent(jTextFieldBevestigEmail)
-                            .addComponent(jTextFieldGsm)
-                            .addComponent(jTextFieldPostcode)
-                            .addComponent(jTextFieldKiesGebruikersnaam)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldSetWachtwoord)
+                                    .addComponent(jTextFieldBevestigWachtwoord)
+                                    .addComponent(jTextFieldVoornaam)
+                                    .addComponent(jTextFieldNaam)
+                                    .addComponent(jTextFieldEmail)
+                                    .addComponent(jTextFieldBevestigEmail)
+                                    .addComponent(jTextFieldGsm)
+                                    .addComponent(jTextFieldPostcode)
+                                    .addComponent(jTextFieldKiesGebruikersnaam)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, Short.MAX_VALUE)
+                                .addComponent(jButtonRegistreren)
+                                .addGap(37, 37, 37))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(huisnummer, javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,16 +226,137 @@ public class NewUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(huisnummer)
                     .addComponent(jTextFieldHuisnummer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRegistreren)
-                    .addComponent(jButtonAnnuleren))
-                .addContainerGap(204, Short.MAX_VALUE))
+                    .addComponent(jLabel12)
+                    .addComponent(jTextFieldBeveiligingsVraag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAnnuleren)
+                    .addComponent(jButtonRegistreren))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonRegistrerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrerenActionPerformed
+         String paswoord = jTextFieldSetWachtwoord.getText();
+        String paswoordHerhaald = jTextFieldBevestigWachtwoord.getText();
+        String gebruikersnaam = jTextFieldKiesGebruikersnaam.getText();
+        String naam = jTextFieldNaam.getText();
+        String voornaam = jTextFieldVoornaam.getText();
+        String mail = jTextFieldEmail.getText();
+        int postcode = Integer.parseInt(jTextFieldPostcode.getText());
+        int huisnummer = Integer.parseInt(jTextFieldHuisnummer.getText());
+        String gsm = jTextFieldGsm.getText();
+        String straatnaam = jTextFieldStraatnaam.getText();
+        String huisdier = jTextFieldBeveiligingsVraag.getText();
+        
+        if(checkPaswoord(paswoord, gebruikersnaam))
+        {
+            if(paswoord.equals(paswoordHerhaald))
+            {
+                Klant k = new Klant(naam, voornaam, gebruikersnaam, mail, postcode, huisnummer, gsm, paswoord, straatnaam, huisdier);
+            
+                if(d.checkGebruikersnaam(k.getGebruikersnaam()))
+                {
+                    JOptionPane.showMessageDialog(null, "Deze gebruikersnaam bestaat al.");
+                    jTextFieldKiesGebruikersnaam.setText("");
+                    jTextFieldSetWachtwoord.setText("");
+                    jTextFieldBevestigWachtwoord.setText("");
+                    jTextFieldKiesGebruikersnaam.requestFocus();
+                    jTextFieldNaam.setText("");
+                     jTextFieldVoornaam.setText("");
+                     jTextFieldEmail.setText("");
+                    jTextFieldPostcode  .setText("");
+                    jTextFieldHuisnummer.setText("");
+                    jTextFieldGsm  .setText("");
+                    jTextFieldStraatnaam     .setText("");   
+                    jTextFieldBeveiligingsVraag.setText("");
+                }
+                else
+                {
+                    d.addKlant(k);
+                    JOptionPane.showMessageDialog(null, "Account succesvol aangemaakt, we verbinden u door met de lobby");
+                    setVisible(false);
+                    Lobby lobby = new Lobby(this);
+                    lobby.setLocationRelativeTo(null);
+                    lobby.setVisible(true);
+                    
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Beide wachtwoorden komen niet overeen.");
+                 jTextFieldKiesGebruikersnaam.setText("");
+                    jTextFieldSetWachtwoord.setText("");
+                    jTextFieldBevestigWachtwoord.setText("");
+                    jTextFieldKiesGebruikersnaam.requestFocus();
+                    jTextFieldNaam.setText("");
+                     jTextFieldVoornaam.setText("");
+                     jTextFieldEmail.setText("");
+                    jTextFieldPostcode  .setText("");
+                    jTextFieldHuisnummer.setText("");
+                    jTextFieldGsm  .setText("");
+                    jTextFieldStraatnaam     .setText("");   
+                    jTextFieldBeveiligingsVraag.setText("");
+                jTextFieldSetWachtwoord.requestFocus();
+                
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Het wachtwoord moet tussen minstens 8 karakters lang zijn en mag de gebruikersnaam niet bevatten");
+             jTextFieldKiesGebruikersnaam.setText("");
+                    jTextFieldSetWachtwoord.setText("");
+                    jTextFieldBevestigWachtwoord.setText("");
+                    jTextFieldKiesGebruikersnaam.requestFocus();
+                    jTextFieldNaam.setText("");
+                     jTextFieldVoornaam.setText("");
+                     jTextFieldEmail.setText("");
+                    jTextFieldPostcode  .setText("");
+                    jTextFieldHuisnummer.setText("");
+                    jTextFieldGsm  .setText("");
+                     jTextFieldStraatnaam     .setText("");  
+                     jTextFieldBeveiligingsVraag.setText("");
+                    jTextFieldSetWachtwoord.requestFocus();
+        }
+    }//GEN-LAST:event_jButtonRegistrerenActionPerformed
+
+    private void jButtonAnnulerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnulerenActionPerformed
+        this.setVisible(false);
+              Login r = new Login();
+             
+                r.setVisible(true);
+               
+    }//GEN-LAST:event_jButtonAnnulerenActionPerformed
+
+    
+        public boolean checkPaswoord(String paswoord, String gebruikersnaam)
+    {
+        int length;
+        length = paswoord.length();
+        int lengthgebruikersnaam;
+        lengthgebruikersnaam = gebruikersnaam.length();
+        
+        if(length < 8)
+        {
+            return false;
+        }
+        
+        for(int i = 0; i < paswoord.length()-gebruikersnaam.length();i++)
+        {
+            if (paswoord.contains(gebruikersnaam))
+            {
+                return false;
+            }           
+            return true;
+        }
+        return true;
+    }
+   
+    
     /**
      * @param args the command line arguments
      */
@@ -380,6 +399,7 @@ public class NewUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -388,6 +408,7 @@ public class NewUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextFieldBeveiligingsVraag;
     private javax.swing.JTextField jTextFieldBevestigEmail;
     private javax.swing.JTextField jTextFieldBevestigWachtwoord;
     private javax.swing.JTextField jTextFieldEmail;

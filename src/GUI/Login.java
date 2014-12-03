@@ -13,7 +13,7 @@ public class Login extends javax.swing.JFrame {
 
         private JFrame myCaller;
         Klant k = null;
-        public Klant actief = null;
+       
         public Database d = new Database();
         
         private static final Login login = new Login();
@@ -46,6 +46,7 @@ public class Login extends javax.swing.JFrame {
         jTextFieldWachtwoord = new javax.swing.JTextField();
         jButtonAanmelden = new javax.swing.JButton();
         jButtonToNewuser = new javax.swing.JButton();
+        jButtonWWvergeten = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +68,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jButtonWWvergeten.setText("Wachtwoord Vergeten");
+        jButtonWWvergeten.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonWWvergetenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,10 +90,12 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonToNewuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldWachtwoord)
-                            .addComponent(jButtonAanmelden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                            .addComponent(jButtonWWvergeten)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButtonToNewuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldWachtwoord)
+                                .addComponent(jButtonAanmelden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +112,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jButtonAanmelden)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonToNewuser)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonWWvergeten)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,12 +128,12 @@ public class Login extends javax.swing.JFrame {
         if(d.checkGebruikersnaam(gebruikersnaam)){
             if (wachtwoord.equals(d.getKlant(gebruikersnaam).getWachtwoord())){
                 k = d.getKlant(gebruikersnaam);
-                login.setActief(k);
                 login.setLocationRelativeTo(null);
+                this.setVisible(false);
                 Lobby lobby = new Lobby(this);
                 lobby.setLocationRelativeTo(null);
                 lobby.setVisible(true);
-                setVisible(false);
+                
             }
             else
             {
@@ -141,12 +153,17 @@ public class Login extends javax.swing.JFrame {
 
     private void jButtonToNewuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonToNewuserActionPerformed
        
-        login.setActief(null);
+        this.setVisible(false);
         NewUser nu = new NewUser(this);
-        nu.setLocationRelativeTo(null);
         nu.setVisible (true);
-        setVisible(false);
+        
     }//GEN-LAST:event_jButtonToNewuserActionPerformed
+
+    private void jButtonWWvergetenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWWvergetenActionPerformed
+        this.setVisible(false);
+        WachtwoordVergeten ww = new WachtwoordVergeten();
+        ww.setVisible(true);
+    }//GEN-LAST:event_jButtonWWvergetenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +203,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAanmelden;
     private javax.swing.JButton jButtonToNewuser;
+    private javax.swing.JButton jButtonWWvergeten;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextFieldGebruikersnaam;
