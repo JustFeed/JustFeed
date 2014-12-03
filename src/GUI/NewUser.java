@@ -263,17 +263,7 @@ public class NewUser extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(null, "Deze gebruikersnaam bestaat al.");
                     jTextFieldKiesGebruikersnaam.setText("");
-                    jTextFieldSetWachtwoord.setText("");
-                    jTextFieldBevestigWachtwoord.setText("");
-                    jTextFieldKiesGebruikersnaam.requestFocus();
-                    jTextFieldNaam.setText("");
-                     jTextFieldVoornaam.setText("");
-                     jTextFieldEmail.setText("");
-                    jTextFieldPostcode  .setText("");
-                    jTextFieldHuisnummer.setText("");
-                    jTextFieldGsm  .setText("");
-                    jTextFieldStraatnaam     .setText("");   
-                    jTextFieldBeveiligingsVraag.setText("");
+                    
                 }
                 else
                 {
@@ -289,18 +279,10 @@ public class NewUser extends javax.swing.JFrame {
             else
             {
                 JOptionPane.showMessageDialog(null, "Beide wachtwoorden komen niet overeen.");
-                 jTextFieldKiesGebruikersnaam.setText("");
+                 
                     jTextFieldSetWachtwoord.setText("");
                     jTextFieldBevestigWachtwoord.setText("");
-                    jTextFieldKiesGebruikersnaam.requestFocus();
-                    jTextFieldNaam.setText("");
-                     jTextFieldVoornaam.setText("");
-                     jTextFieldEmail.setText("");
-                    jTextFieldPostcode  .setText("");
-                    jTextFieldHuisnummer.setText("");
-                    jTextFieldGsm  .setText("");
-                    jTextFieldStraatnaam     .setText("");   
-                    jTextFieldBeveiligingsVraag.setText("");
+                    
                 jTextFieldSetWachtwoord.requestFocus();
                 
             }
@@ -308,18 +290,10 @@ public class NewUser extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(null, "Het wachtwoord moet tussen minstens 8 karakters lang zijn en mag de gebruikersnaam niet bevatten");
-             jTextFieldKiesGebruikersnaam.setText("");
+           
                     jTextFieldSetWachtwoord.setText("");
                     jTextFieldBevestigWachtwoord.setText("");
-                    jTextFieldKiesGebruikersnaam.requestFocus();
-                    jTextFieldNaam.setText("");
-                     jTextFieldVoornaam.setText("");
-                     jTextFieldEmail.setText("");
-                    jTextFieldPostcode  .setText("");
-                    jTextFieldHuisnummer.setText("");
-                    jTextFieldGsm  .setText("");
-                     jTextFieldStraatnaam     .setText("");  
-                     jTextFieldBeveiligingsVraag.setText("");
+                    
                     jTextFieldSetWachtwoord.requestFocus();
         }
     }//GEN-LAST:event_jButtonRegistrerenActionPerformed
