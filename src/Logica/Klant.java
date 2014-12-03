@@ -30,9 +30,8 @@ public class Klant {
     private String gebruikersnaam;
     private String email;
     private int postcode;
-    private String gemeente;
-    private int huisnummer;
-    private int gsmnummer;
+     private int huisnummer;
+    private String gsmnummer;
     private String password;
     private String straatnaam;
     
@@ -42,14 +41,13 @@ public class Klant {
     {}
     
   
-    public Klant (String naam, String voornaam, String gebruikersnaam, String email, int postcode, String gemeente, int huisnummer, int gsmnummer, String password, String straatnaam)
+    public Klant (String naam, String voornaam, String gebruikersnaam, String email, int postcode, int huisnummer, String gsmnummer, String password, String straatnaam)
     {
         this.naam = naam;
         this.voornaam = voornaam;
         this.email = email;
         this.postcode = postcode;
         this.gebruikersnaam = gebruikersnaam;
-        this.gemeente = gemeente;
         this.huisnummer = huisnummer;
        this.straatnaam = straatnaam;
         this.gsmnummer = gsmnummer;
@@ -88,5 +86,20 @@ public class Klant {
         this.email = email;
     }
     
+    public String getWachtwoord (){
+        return this.password;
+    }
+    
+    public void setWachtwoord () {
+        this.password = password;
+    }
+    
+    public String getGebruikersnaam (){
+        return this.gebruikersnaam;
+    }
+    
+    public void setGebruikersnaam (String gebruikersnaam){
+        this.gebruikersnaam = gebruikersnaam;
+    }
     
 }

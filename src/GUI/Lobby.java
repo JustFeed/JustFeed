@@ -5,18 +5,35 @@
  */
 package GUI;
 
-/**
- *
- * @author dcuvelie
- */
-public class Lobby extends javax.swing.JPanel {
+import javax.swing.JFrame;
+import Logica.*;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
-    /**
-     * Creates new form Ingelogd
-     */
+public class Lobby extends javax.swing.JFrame {
+
+    public JFrame myCaller;
+    public Klant actief;
+    
+    
     public Lobby() {
         initComponents();
+        actief = Login.getInstance().actief;
+        txtNaam.setText("Welkom" + actief.getVoornaam() + " " + actief.getNaam());
     }
+    
+    public Lobby(JFrame caller) {
+        initComponents();
+        myCaller = caller;
+        actief = Login.getInstance().actief;
+        txtNaam.setText("Welkom " + actief.getVoornaam() + " " + actief.getNaam());
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,60 +45,99 @@ public class Lobby extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButtonNaarReviews = new javax.swing.JButton();
-        jButtonNaarOrder = new javax.swing.JButton();
-        jButtonNaarAccount = new javax.swing.JButton();
+        jButtonReviewMaken = new javax.swing.JButton();
+        jButtonOrderSamenstellen = new javax.swing.JButton();
+        jButtonAccountWijzigen = new javax.swing.JButton();
+        txtNaam = new javax.swing.JTextField();
 
-        jLabel1.setText("Welkom : ");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("hier moet naam komen automatisch");
+        jLabel1.setText("Welkom: ");
 
-        jButtonNaarReviews.setText("Reviews Maken");
+        jButtonReviewMaken.setText("Reviews Maken");
 
-        jButtonNaarOrder.setText("Order Samenstellen");
+        jButtonOrderSamenstellen.setText("Order samenstellen");
 
-        jButtonNaarAccount.setText("Account wijzigen ");
+        jButtonAccountWijzigen.setText("account wijzigen");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        txtNaam.setText("hier komt de naam dus");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonNaarAccount)
-                    .addComponent(jButtonNaarOrder)
-                    .addComponent(jButtonNaarReviews)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel2)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNaam, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButtonAccountWijzigen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonReviewMaken, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonOrderSamenstellen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(44, 44, 44)
-                .addComponent(jButtonNaarReviews)
-                .addGap(29, 29, 29)
-                .addComponent(jButtonNaarOrder)
+                    .addComponent(txtNaam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(jButtonReviewMaken)
+                .addGap(27, 27, 27)
+                .addComponent(jButtonOrderSamenstellen)
                 .addGap(33, 33, 33)
-                .addComponent(jButtonNaarAccount)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addComponent(jButtonAccountWijzigen)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Lobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Lobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Lobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Lobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Lobby().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonNaarAccount;
-    private javax.swing.JButton jButtonNaarOrder;
-    private javax.swing.JButton jButtonNaarReviews;
+    private javax.swing.JButton jButtonAccountWijzigen;
+    private javax.swing.JButton jButtonOrderSamenstellen;
+    private javax.swing.JButton jButtonReviewMaken;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField txtNaam;
     // End of variables declaration//GEN-END:variables
 }
